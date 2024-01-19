@@ -1,14 +1,35 @@
-body{
-    font-family: poppins;
+body {
+    font-family: 'Poppins', sans-serif;
     font-size: large;
     font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-button{
+button {
     font-size: 25px;
-    font-family: poppins;
+    font-family: 'Poppins', sans-serif;
+}
+
+.left, .right {
+    position: absolute;
+    bottom: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+button {
+    display: block;
+    margin: 10px;
+    padding: 10px;
 }
