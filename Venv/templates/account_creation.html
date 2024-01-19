@@ -1,8 +1,50 @@
 <html>
     <head>
         <title>account_creation</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='account_creation.css')}}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     </head>
 <body>
     <h1>Account Creation</h1>
+    <form action="/account_creation" method="post" autocomplete="off">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="father_name">Father's Name: </label>
+            <input type="text" name="father_name">
+        </div>
+        <div>
+            <label for="dob">Date of Birth: </label>
+            <input type="text" name="dob">
+        </div>
+        <div>
+            <label for="gender">Gender: </label>
+            <input type="radio" name="gender" id="male" value="Male">Male
+            <input type="radio" name="gender" id="female" value="Female">Female
+            <input type="radio" name="gender" id="others" value="Others">Others
+        </div>        
+        <div>
+            <label for="mobile_number">Mobile Number: </label>
+            <input type="text" name="mbno">
+        </div>
+        <div>
+            <label for="pin">Create Pin: </label>
+            <input type="text" name="pin">
+        </div>
+        <div>
+            <label for="Amount">Deposit Initial Amount: </label>
+            <input type="number" name="amount">
+            <p>Minimum deposit amount is 500</p>
+        </div>
+        <div>
+            <input class="btn" type="submit" name="submit" value="Submit">
+            <input class="btn" type="reset" name="reset" value="Reset">
+        </div>
+        {% if msg %}
+           <p>{{msg}}</p>
+        {% endif %}
+    </form>
 </body>
 </html>

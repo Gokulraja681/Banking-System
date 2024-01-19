@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Balance</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='balance_enquiry.css')}}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    </head>
+<body>
+    <h1>My Balance Enquiry Page</h1>
+    <form action="/balance_enquiry" method="get">
+        <div>
+            <p style="color: green;">{{msg}}</p>
+            <p>Account Holder's Name: {{name}}</p>
+            <p>Current Balance: {{amount}}</p>
+        </div>
+    </form>
+</body>
+</html>

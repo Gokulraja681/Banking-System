@@ -1,0 +1,14 @@
+body{
+    font-family: poppins;
+    font-size: large;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+}
+
+button{
+    font-size: 25px;
+    font-family: poppins;
+}
