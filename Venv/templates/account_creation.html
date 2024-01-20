@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>account_creation</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='account_creation.css')}}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    </head>
+<body>
+    <h1>Account Creation</h1>
+    <form action="/account_creation" method="post" autocomplete="off">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="name">
+        </div> <br>
+        <div>
+            <label for="father_name">Father's Name: </label>
+            <input type="text" name="father_name">
+        </div> <br>
+        <div>
+            <label for="dob">Date of Birth: </label>
+            <input type="text" name="dob">
+        </div> <br>
+        <div>
+            <label for="gender">Gender: </label>
+            <input type="radio" name="gender" id="male" value="Male">Male
+            <input type="radio" name="gender" id="female" value="Female">Female
+            <input type="radio" name="gender" id="others" value="Others">Others
+        </div> <br>     
+        <div>
+            <label for="mobile_number">Mobile Number: </label>
+            <input type="text" name="mbno">
+        </div> <br>
+        <div>
+            <label for="pin">Create Pin: </label>
+            <input type="text" name="p">
+        </div> <br>
+        {% if msg %}
+          <p>{{msg}}</p>
+        {% endif %}
+        <div>
+            <label for="pin">Confirm Pin: </label>
+            <input type="text" name="pin">
+        </div> <br>
+        {% if msg1 %}
+          <p>{{msg1}}</p>
+        {% endif %}
+        <div>
+            <label for="Amount">Deposit Initial Amount: </label>
+            <input type="number" name="amount" placeholder="Initial Deposit Amount is 1000">
+        </div> <br>
+        {% if msg2 %}
+          <p>{{msg2}}</p>
+        {% endif %}
+        <div>
+            <input class="btn" type="submit" name="submit" value="Submit">
+            <input class="btn" type="reset" name="reset" value="Reset">
+        </div> <br>
+        {% if msg3 %}
+          <p>{{msg3}}</p>
+        {% endif %}
+        {% if msg4 %}
+          <p>{{msg4}}</p>
+        {% endif %}
+    </form>
+    <div>
+        <form action="/index">
+            <input type="submit" name="submit" value="Back">
+        </form>
+    </div>
+</body>
+</html>

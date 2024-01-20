@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Change Pin</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='change_pin.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <h1>This is my change pin Section</h1>
+    <form action="/change_pin" method="post" autocomplete="off">
+        <div>
+            <label for="mbno">Mobile Number: </label>
+            <input type="text" name="mbno" id="">
+        </div> <br>
+        {% if msg %}
+           <p>{{msg}}</p>
+        {% endif %}
+        <div>
+            <label for="acn">Account Number: </label>
+            <input type="number" name="acn" id="">
+        </div> <br>
+        {% if msg1 %}
+           <p>{{msg1}}</p>
+        {% endif %}
+        <div>
+            <label for="re-pin">Reset Pin: </label>
+            <input type="text" name="re_pin" id="">
+        </div> <br>
+        <div>
+            <label for="pin">Confirm Pin: </label>
+            <input type="text" name="pin" id="">
+        </div> <br>
+        <div>
+            <input type="submit" name="submit" value="Submit">
+            <input type="reset" name="reset" value="Reset">
+        </div>
+        {% if msg2 %}
+           <p>{{msg2}}</p>
+        {% endif %}
+    </form>
+    <form action="/index">
+        <input type="submit" name="submit" value="Back">
+    </form>
+</body>
+</html>
