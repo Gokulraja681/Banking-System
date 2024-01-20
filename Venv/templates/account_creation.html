@@ -31,6 +31,10 @@
         </div>
         <div>
             <label for="pin">Create Pin: </label>
+            <input type="text" name="p">
+        </div>
+        <div>
+            <label for="pin">Confirm Pin: </label>
             <input type="text" name="pin">
         </div>
         <div>
@@ -43,7 +47,7 @@
             <input class="btn" type="reset" name="reset" value="Reset">
         </div>
         {% if msg %}
-           <p>{{msg}}</p>
+            <p>{{msg}}</p>
         {% endif %}
     </form>
     <div>

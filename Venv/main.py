@@ -26,16 +26,27 @@ gr = GORA()
 @app.route('/account_creation', methods = ["POST", "GET"])
 def account_creation():
     msg = None
+    a = None
     if request.method == "POST":
         gr.name = request.form.get('name')
         gr.father_name = request.form.get('father_name')
         gr.dob = request.form.get('dob')
         gr.gender = request.form.get('gender')
         gr.mbno = request.form.get('mbno')
+        p = request.form.get('p')
+        while len(p) != 6:
+            a = "! Your Should be in Six characters !"
+            p = request.form.get('p')
         gr.pin = request.form.get('pin')
+        while gr.pin != p:
+            a = "! Your Pin not matched with each other !"
+            gr.pin = request.form.get('pin')
+        if gr.pin == p:
+            a = "! Your Pin has been generated successfully !"
         gr.amount = int(request.form.get('amount'))
-        msg = "Account has been created Successfully !"
-    return render_template('account_creation.html', msg = msg)
+        if gr.amount > 500:
+            msg = "Account has been created Successfully !"
+    return render_template('account_creation.html', msg = msg, a = a)
 
 
 # Account Holder's Profile Module
