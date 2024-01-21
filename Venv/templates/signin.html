@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Signin</title>
+    </head>
+<body>
+    <h1>User Signin Page</h1>
+    <form action="/signin" method="post">
+        <div>
+            <label for="s_gmail">Enter your Mail_ID: </label>
+            <input type="email" name="s_gmail" id="">
+        </div> <br>
+        <div>
+            <label for="s_pswd">Enter your Password: </label>
+            <input type="text" name="s_pswd" id="">
+            <a href="/forget_password">Forget Password ?</a>
+        </div> <br>
+        {% if msg %}
+          <p>{{msg}}</p>
+        {% endif %}
+        <div>
+            <input type="submit" name="submit" value="Submit">
+            <input type="reset" name="reset" value="Reset">
+        </div>
+        {% if msg1 %}
+           <p>{{msg1}}</p>
+        {% endif %}
+    </form>
+</body>
+</html>

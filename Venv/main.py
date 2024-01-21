@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request
 import random
+import sandl
 app = Flask(__name__)
 
 @app.route('/')
 def home():
     return render_template('home.html')
+
+@app.route('/setup')
+def setup():
+    return render_template('setup.html')
 
 @app.route('/index')
 def index():

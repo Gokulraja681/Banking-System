@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Signup</title>
+    </head>
+<body>
+    <h1>User Account creation page</h1>
+    <form action="/signup" method="post" autocomplete="off">
+        <div>
+            <label for="fname">Enter your Firstname: </label>
+            <input type="text" name="fname" id="">
+        </div> <br>
+        <div>
+            <label for="lname">Enter your Lastname: </label>
+            <input type="text" name="lname" id="">
+        </div> <br>
+        <div>
+            <label for="gmail">Enter your Mail-ID: </label>
+            <input type="email" name="gmail" id="">
+        </div> <br>
+        <div>
+            <label for="password">Create Password: </label>
+            <input type="text" name="p" id="">
+        </div> <br>
+        {% if msg %}
+           <p>{{msg}}</p>
+        {% endif %}
+        <div>
+            <label for="password">Confirm Password: </label>
+            <input type="text" name="pswd" id="">
+        </div> <br>
+        {% if msg1 %}
+           <p>{{msg1}}</p>
+        {% endif %}
+        <div>
+            <input type="submit" name="submit" value="Submit">
+            <input type="reset" name="reset" value="Reset">
+        </div>
+        {% if notify %}
+          <p>{{notify}}</p>
+        {% endif %}
+    </form>
+</body>
+</html>
