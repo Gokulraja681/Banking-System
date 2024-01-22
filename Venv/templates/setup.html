@@ -4,11 +4,24 @@
         <link rel="stylesheet" href="{{url_for('static', filename='setup.css')}}">
     </head>
 <body>
-    <h1>This is my account setup</h1>
-    <form action="/setup">
-        <a href="/signup">Signup</a>
-        <a href="/details">Details</a>
-        <a href="/signin">Login</a>
-    </form>
+    <h1>Welcome to GORA Bank</h1>
+    <center>
+        <div class="container">
+            <center>
+                <form action="/setup">
+                    <div class="new">
+                        <p>New User</p>
+                        <button id="one"><a href="/signup">Signup</a></button>
+                    </div> <br> <br>
+                    <div class="old">
+                        <p>User</p>
+                        <button id="three"><a href="/signin">Login</a></button>
+                    </div>
+                </form>
+            </center>
+        </div>
+    </center>
+    <footer>copyrights &copy; 2024 Gokul. All rights reserved</footer>
 </body>
 </html>
+
