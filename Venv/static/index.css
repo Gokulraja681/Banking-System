@@ -4,6 +4,10 @@ body {
     font-weight: bold;
     margin: 0;
     padding: 0;
+    background-image: url('index.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 a {
