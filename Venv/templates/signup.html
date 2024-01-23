@@ -7,56 +7,58 @@
     <link rel="stylesheet" href="{{url_for('static', filename='signup.css')}}">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="title">
-            Register an Account
-        </div>
-        <form action="/signup" method="post" autocomplete="off">
-            <div class="field">
-                <input type="text" name="fname" required>
-                <label for="fname">First Name</label>
+    <center>
+        <div class="wrapper">
+            <div class="title">
+                Register an Account
             </div>
-            <div class="field">
-                <input type="text" name="lname" required>
-                <label for="lname">Last Name</label>
-            </div>
-            <div class="field">
-                <input type="email" name="gmail" required>
-                <label for="gmail">Email</label>
-            </div>
-            {% if msg2 %}
-              <p style="color: red;">{{msg2}}</p>
-            {% endif %}
-            <div class="field">
-                <input type="password" name="p" required>
-                <label for="password">Password</label>
-            </div>
-            {% if msg %}
-                <p class="error" style="color: red;">{{msg}}</p>
-            {% endif %}
-            <div class="field">
-                <input type="password" name="pswd" required>
-                <label for="pswd">Confirm Password</label>
-            </div>
-            {% if msg1 %}
-                <p class="error" style="color: red;">{{msg1}}</p>
-            {% endif %}
-            <div class="content">
-                <div class="checkbox">
-                    <input type="checkbox" id="agree" required>
-                    <label for="agree">I agree to all statements</label>
+            <form action="/signup" method="post" autocomplete="off">
+                <div class="field">
+                    <input type="text" name="fname" required>
+                    <label for="fname">First Name</label>
                 </div>
-            </div>
-            <div class="field">
-                <input type="submit" value="Register">
-            </div>
-            {% if notify %}
-                <p class="success" style="color: green;">{{notify}}</p>
-            {% endif %}
-            <div class="signup-link">
-                Already a member? <a href="/signin">Sign in here</a>
-            </div>
-        </form>
-    </div>
+                <div class="field">
+                    <input type="text" name="lname" required>
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="field">
+                    <input type="email" name="gmail" required>
+                    <label for="gmail">Email</label>
+                </div>
+                {% if msg2 %}
+                  <p style="color: red;">{{msg2}}</p>
+                {% endif %}
+                <div class="field">
+                    <input type="password" name="p" required>
+                    <label for="password">Password</label>
+                </div>
+                {% if msg %}
+                    <p class="error" style="color: red;">{{msg}}</p>
+                {% endif %}
+                <div class="field">
+                    <input type="password" name="pswd" required>
+                    <label for="pswd">Confirm Password</label>
+                </div>
+                {% if msg1 %}
+                    <p class="error" style="color: red;">{{msg1}}</p>
+                {% endif %}
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" id="agree" required>
+                        <label for="agree">I agree to all statements</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Register">
+                </div>
+                {% if notify %}
+                    <p class="success" style="color: green;">{{notify}}</p>
+                {% endif %}
+                <div class="signup-link">
+                    Already a member? <a href="/signin">Sign in here</a>
+                </div>
+            </form>
+        </div>
+    </center>
 </body>
 </html>

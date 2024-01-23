@@ -5,9 +5,26 @@
         <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
     </head>
 <body>
-    <h1>Main Contents page</h1>
+    <div class="top-right">
+        <form action="/logout">
+            <button type="submit">logout</button>
+        </form>
+    </div>
     <div class="left">
-        <button><a href="/account_creation">Account Creation</a></button>
+        <a href="/account_creation"><button type="button">Accout Creation</button></a>
+        <a href="/profile"><button type="button">Profile</button></a>
+        <a href="/change_pin"><button type="button">Change Pin</button></a>
+    </div>
+    <div class="right">
+        <a href="/withdrawal"><button type="button">Withdrawal</button></a>
+        <a href="/deposit"><button type="button">Deposit</button></a>
+        <a href="/balance_enquiry"><button type="button">Balance Enquiry</button></a>
+    </div>
+</body>
+</html>
+
+<!-- <div class="left">
+        <button>Account Creation</a></button>
         <button><a href="/profile">Profile</a></button>
         <button><a href="/change_pin">Change Pin</a></button>
     </div>
@@ -15,11 +32,5 @@
         <button><a href="/withdrawal">Withdrawal</a></button>
         <button><a href="/deposit">Deposit</a></button>
         <button><a href="/balance_enquiry">Balance Enquiry</a></button>
-    </div>
-    <div>
-        <form action="/logout">
-            <button>logout</button>
-        </form>
-    </div>
-</body>
-</html>
+    </div> -->
+    
