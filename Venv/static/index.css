@@ -1,13 +1,16 @@
 body {
     font-family: 'Poppins', sans-serif;
-    font-size: large;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    background-image: url('index.jpg');
-    min-height: 100%;
+    background-image: url('index1.jpg');
     background-position: center;
     background-size: cover;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: brightness(20%);
+    z-index: -1;
 }
 
 a {

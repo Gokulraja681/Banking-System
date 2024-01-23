@@ -58,6 +58,10 @@ button {
     background-color: #084aa3;
     border: none;
     border-radius: 20px;
+    cursor: pointer;
+    color: whitesmoke;
+    font-size: 18px;
+    font-family: 'Alice', serif;
 }
 
 button:hover {
