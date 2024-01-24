@@ -5,20 +5,30 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-html,body{
-  display: grid;
+html, body {
   height: 100%;
   width: 100%;
   place-items: center;
   background: #f2f2f2;
-  background-image: url('new signup.png');
+  background-image: url('MODIFIEDSS.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
 ::selection{
   background: #4158d0;
   color: #fff;
 }
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items:center ;
+}
+
 .wrapper{
   width: 380px;
   background: #8bb1d8;
@@ -113,7 +123,6 @@ form .field input[type="submit"]{
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
   transition: all 0.3s ease;
 }
 form .field input[type="submit"]:active{

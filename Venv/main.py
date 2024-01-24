@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, redirect, url_for, request
 import random
 app = Flask(__name__)
 
@@ -44,7 +44,8 @@ def signup():
         if rg.pswd == p:
             rg.pswd = p
         if (len(p) >= 8) and (rg.pswd == p) and (mail != rg.gmail):
-            notify = "User account has created successfully"
+            # notify = "User account has created successfully"
+            return redirect(url_for('signin'))
     return render_template('signup.html', msg = msg, msg1 = msg1, 
                            notify = notify, msg2 = msg2)
 
@@ -66,7 +67,7 @@ def signin():
         if (s_gmail != rg.gmail) or (s_pswd != rg.pswd):
             msg = "Enter mail or password is not matched"
         if (s_gmail == rg.gmail) and (s_pswd == rg.pswd):
-            return index()
+            return redirect(url_for('index'))
     return render_template('signin.html', msg = msg, msg1 = msg1)
 
 # Forget Password Module
@@ -89,6 +90,7 @@ def forget_password():
         if (f_gmail == rg.gmail) and (len(p) >= 8) and (f_pswd == p):
             rg.pswd = f_pswd
             notify = "Password changed successfully !"
+            signin()
     return render_template('forget_password.html', msg = msg, msg1 = msg1, 
                            msg2 = msg2, notify = notify)
 

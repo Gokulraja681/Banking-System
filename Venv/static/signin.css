@@ -6,18 +6,23 @@
   font-family: 'Poppins', sans-serif;
 }
 html,body{
-  display: grid;
   height: 100%;
   width: 100%;
   place-items: center;
   background: #f2f2f2;
-  background-image: url('new signup.png');
+  background-image: url('MODIFIEDSS.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 ::selection{
   background: #4158d0;
   color: #fff;
+}
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items:center ;
+  height: 100vh;
 }
 .wrapper{
   width: 380px;
