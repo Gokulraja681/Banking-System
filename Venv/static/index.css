@@ -1,9 +1,15 @@
-body {
+body::before {
     font-family: 'Poppins', sans-serif;
-    font-size: large;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
+    background-image: url('index1.jpg');
+    background-position: center;
+    background-size: cover;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: brightness(86%);
 }
 
 a {
@@ -11,8 +17,16 @@ a {
 }
 
 button {
-    font-size: 25px;
+    font-size: 15px;
     font-family: 'Poppins', sans-serif;
+    width: 170px;
+    background-color: #99cef7;
+    border: none;
+    height: 60px;
+    border-radius: 20px;
+    color: rgb(0, 0, 255);
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .left, .right {
@@ -30,6 +44,30 @@ button {
 
 button {
     display: block;
-    margin: 10px;
-    padding: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+button:hover{
+    background-color: #1b9cff;
+}
+
+.top-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.top, .top-right,
+.left, button, a{
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popUp 0.5s ease-out forwards;
+}
+
+@keyframes popUp {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
