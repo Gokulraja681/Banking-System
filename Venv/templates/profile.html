@@ -1,27 +1,27 @@
 <html>
-    <head>
-        <title>Profile</title>
-        <link rel="stylesheet" href="{{url_for('static', filename='profile.css')}}">
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    </head>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
 <body>
-    <h1>Profile</h1>
-    <form action="/profile" method="get">
-        <div>
-            <p>Account Number: {{ user_data.Account_Number }}</p> <br>
-            <p>Account Holder's Name: {{ user_data.Name }}</p> <br>
-            <p>Account Holder's Father's Name: {{ user_data.Father_Name }}</p> <br>
-            <p>Account Holder's Date of Birth: {{ user_data.DOB }}</p> <br>
-            <p>Account Holder's Gender: {{ user_data.Gender }}</p> <br>
-            <p>Account Holder's Mobile Number: {{ user_data.Mbno }}</p> <br>
-            <p>Account Holder's Pin: {{ user_data.Pin }}</p> <br>
-            <p>Account Holder's Amount: {{ user_data.Amount }}</p>
-        </div>
-    </form>
+<h1>Profile</h1>
+<form action="/profile" method="get">
     <div>
-        <form action="/index">
-            <input type="submit" name="submit" value="Back">
-        </form>
+        <p>Account Number: {{ data.Account_Number }}</p> <br>
+        <p>Account Holder's Name: {{ data.Name }}</p> <br>
+        <p>Account Holder's Father's Name: {{ data.Father_Name }}</p> <br>
+        <p>Account Holder's Date of Birth: {{ data.DOB }}</p> <br>
+        <p>Account Holder's Gender: {{ data.Gender }}</p> <br>
+        <p>Account Holder's Mobile Number: {{ data.Mbno }}</p> <br>
+        <p>Account Holder's Pin: {{ data.Pin }}</p> <br>
+        <p>Account Holder's Amount: {{ data.Amount }}</p>
     </div>
+</form>
+<div>
+    <form action="/index">
+        <input type="submit" name="submit" value="Back">
+    </form>
+</div>
 </body>
 </html>

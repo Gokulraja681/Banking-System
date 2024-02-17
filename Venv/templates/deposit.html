@@ -6,10 +6,12 @@
     </head>
 <body>
     <h1>Deposit Page</h1>
-    <form action="/deposit" method="post">
+    <div>
+        <p>Account Number: {{data.Account_Number}}</p>
+        <p> Account Holder's Name: {{data.Name}}</p>
+    </div>
+    <form action="/deposit" method="Post">
         <div>
-            <p>Account Number: {{acn}}</p>
-            <p> Account Holder's Name: {{name}}</p>
             <P>Minimum Amount for Deposit is 500</P>
             <label for="amt">Enter Amout: </label>
             <input type="number" name="amt">

@@ -8,8 +8,8 @@
     <h1>Withdrawal</h1>
     <form action="/withdrawal" method="post">
         <div>
-            <p>Account Holder's Name: {{name}}</p>
-            <p>Account Number: {{acn}}</p>
+            <p>Account Number: {{data.Account_Number}}</p>
+            <p>Account Holder's Name: {{data.Name}}</p>
             <p>Enter the amount for Withdrawal</p>
             <label for="amt">Enter Amount:</label>
             <input type="number" name="amt">
