@@ -268,6 +268,30 @@ def deposit():
     return render_template('deposit.html', msg=msg, msg1=msg1, 
                            msg2=msg2, notify=notify, data=data)
 
+# Tranfering Money
+@app.route('/transfer_money', methods=['POST', 'GET'])
+def transfer_money():
+    data = None
+    receiver_account = None
+    if 'user' in session:
+        user_id = session['user']
+        data = mycol.find_one({'_id': ObjectId(user_id)})
+        if request.method == 'POST':
+            receiver = int(request.form['receiver'])
+            amount = int(request.form['amt'])
+            if data['Amount'] < amount:
+                return 'Insufficient Amount'
+            else:
+                receiver_account = mycol.find_one({'Account_Number': receiver})
+                if receiver_account:
+                    mycol.update_one({'_id': ObjectId(user_id)},
+                                     {'$inc':{'Amount': -amount}})
+                    mycol.update_one({'_id': receiver_account['_id']},
+                                     {'$inc': {'Amount': amount}})
+                else:
+                    return 'User Account not exists'
+    return render_template('transfer_money.html', data=data, receiver_account = receiver_account)
+
 
 # Balance Enquiry Module
 @app.route('/balance_enquiry', methods = ["GET", "POST"])

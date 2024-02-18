@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Transfer Money</title>
+</head>
+<body>
+    <h1>This is my transfer money page</h1>
+    <form action="/transfer_money" method="post">
+        <fieldset>
+            <legend>Account Information</legend>
+            <p>Account holder name: {{data.Name}}</p>
+            <p>Account Number: {{data.Account_Number}}</p>
+            <p>Available Balance: {{data.Amount}}</p>
+        </fieldset> <hr>
+        <fieldset>
+            <legend>Transfer Information</legend>
+            <div>
+                <label for="Confirmation">Enter Account Number for Transfer Money: </label>
+                <input type="search" name="receiver">
+            </div> <br>
+            <div>
+                <label for="Checking">Enter amount: </label>
+                <input type="number" name="amt">
+                <input type="submit" name="submit" value="Transfer">
+            </div>
+            {% if receiver_account %}
+                <div>
+                    <p>Money Transfered Successfully</p>
+                    <p>Account Holder Name: {{receiver_account.Name}}</p>
+                    <p>Account Holder Number: {{receiver_account.Account_Number}}</p>
+                    <p>Account Mobile Number: {{receiver_account.Mbno}}</p>
+                </div>
+            {% endif %}
+        </fieldset>
+        <a href="/transfer_money">Refresh</a>
+        <a href="/balance_enquiry">Check your Balance</a>
+    </form>
+</body>
+</html>
