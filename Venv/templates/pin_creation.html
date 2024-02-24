@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Pin Creation</title>
+    </head>
+<body>
+    <form action="/pin_creation" method="post">
+        <div>
+            <label for="acn">Account Number: </label>
+            <input type="number" name="acn" id="">
+        </div> <br>
+        <div>
+            <label for="mbno">Mobile Number: </label>
+            <input type="text" name="mbno" id="">
+        </div> <br>
+        {% if msg %}
+          <p>{{msg}}</p>
+        {% endif %}
+        <div>
+            <label for="create_pin">Create Pin: </label>
+            <input type="text" name="create_pin" id="">
+        </div> <br>
+        <div>
+            <label for="confirm_pin">Confirm Pin: </label>
+            <input type="text" name="pin" id="">
+        </div> <br>
+        <div>
+            <input type="submit" name="submit" value="Done">
+            <input type="reset" name="reset" value="Clear">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,6 +1,6 @@
-body::before {
+body{
     font-family: 'Poppins', sans-serif;
-    background-image: url('index1.jpg');
+    background-image: url('home.jpeg');
     background-position: center;
     background-size: cover;
     content: "";
@@ -9,7 +9,6 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    filter: brightness(86%);
 }
 
 a {
@@ -24,7 +23,6 @@ button {
     border: none;
     height: 60px;
     border-radius: 20px;
-    color: rgb(0, 0, 255);
     cursor: pointer;
     font-weight: bold;
 }
@@ -48,9 +46,6 @@ button {
     padding: 20px;
 }
 
-button:hover{
-    background-color: #1b9cff;
-}
 
 .top-right{
     position: absolute;
@@ -58,16 +53,3 @@ button:hover{
     right: 0;
 }
 
-.top, .top-right,
-.left, button, a{
-    opacity: 0;
-    transform: scale(0.5);
-    animation: popUp 0.5s ease-out forwards;
-}
-
-@keyframes popUp {
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}

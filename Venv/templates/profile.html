@@ -3,25 +3,107 @@
     <title>Profile</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-<h1>Profile</h1>
-<form action="/profile" method="get">
-    <div>
-        <p>Account Number: {{ data.Account_Number }}</p> <br>
-        <p>Account Holder's Name: {{ data.Name }}</p> <br>
-        <p>Account Holder's Father's Name: {{ data.Father_Name }}</p> <br>
-        <p>Account Holder's Date of Birth: {{ data.DOB }}</p> <br>
-        <p>Account Holder's Gender: {{ data.Gender }}</p> <br>
-        <p>Account Holder's Mobile Number: {{ data.Mbno }}</p> <br>
-        <p>Account Holder's Pin: {{ data.Pin }}</p> <br>
-        <p>Account Holder's Amount: {{ data.Amount }}</p>
+    <div class="animated">
+        <div>
+            <nav>
+                <a href="/index">Home</a>
+                <a href="/pin_creation">Pin Creation</a>
+            </nav>
+        </div>
+        <div class = 'container'>
+            <div class="main">
+                <form action="/profile" method="get">
+                    <div>
+                        <img src="/static/profile_boy.png" alt="">
+                    </div> <br>
+                    <div>
+                        <p>{{data.Prefix}} . {{ data.First_Name }} {{data.Last_Name}}</p>
+                        <p>{{data.gmail}}</p>
+                    </div>
+                </form>
+                <form action="/edit_profile" method="post">
+                    <div>
+                        <a href="edit.html">
+                            <button class="btn"> Edit
+                                <span class="material-symbols-outlined" style="font-size: 10px;">edit</span>
+                            </button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div class="Data">
+                <form action="/profile" method="get">
+                    <div class="basic">
+                        <div class="map">
+                            <div  class="key">
+                                <p>Account Number : </p>
+                            </div>
+                            <div class="values">
+                                <p>{{ data.Account_Number }}</p>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div class="key">
+                                <p>Mobile Number : </p>
+                            </div>
+                            <div class="values">
+                                <p>{{ data.Mbno }}</p>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div class="key">
+                                <p>Date of Birth : </p>
+                            </div>
+                            <div class="values">
+                                <p>{{ data.DOB }}</p>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div class="key">
+                                <p>Gender : </p>
+                            </div>
+                            <div class="values">
+                                <p>{{ data.Gender }}</p>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div class="key">
+                                <p>Pin : </p>
+                            </div>
+                            <div class="values">
+                                <p>{{ data.Pin }}</p>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div class="key">
+                                <p>Balance : </p>
+                            </div>
+                            <div class="values">
+                                <p>{{ data.Amount }} {{data.Currency_Type}}</p>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div class="key">
+                                <p>Address : </p>
+                            </div>
+                            <div class="values">
+                                <p>{{ data.Address }}</p>
+                            </div>
+                        </div>
+                    </div>                         
+                </form>
+                <div class="Back">
+                    <form action="/index">
+                        <div>
+                            <input class="bck" type="submit" name="submit" value="Back">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</form>
-<div>
-    <form action="/index">
-        <input type="submit" name="submit" value="Back">
-    </form>
-</div>
 </body>
 </html>
