@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('setup.jpg');
-    background-position: center;
+body{
+    background-image: url('set_new.png');
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(80%);
-    z-index: -1;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
 }
 
 .container,
@@ -31,7 +30,7 @@ footer {
 
 h1 {
     text-align: center;
-    font-size: 80px;
+    font-size: 60px;
     margin-top: 20px;
     color: #eef3db;
 }
@@ -47,7 +46,7 @@ a {
     width: 250px;
     height: 260px;
     background-color: white;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
     padding: 30px;
     border-radius: 30px;
 }

@@ -5,7 +5,7 @@
 
 
 body{
-    background-image: url('pin.png');
+    background-image: url('transfermoney.png');
     height: 100%;
     width: 100%;
     place-items: center;
@@ -17,18 +17,35 @@ body{
     padding: 0;
 }
 
-.container{
+.datas {
+    padding-top: 10px;
+    display: flex;
+    font-family: "Libre Baskerville", serif;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.values{
+    padding-left: 30px;
+}
+
+.container {
     width: 50%;
-    height: 140%;
+    height: 145%;
     margin: auto;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
 }
 
-.btns{
-    display: flex;
-    justify-content: space-evenly;
+.label{
+    display: block;
+    margin-bottom: 10px;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    color: black;
+    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
 .input{
@@ -43,86 +60,97 @@ body{
     transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
-.label{
-    display: block;
-    margin-bottom: 10px;
-    font-family: "Roboto Slab", serif;
-    font-size: 20px;
-    color: black;
-    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+.transfer{
+    display: flex;
 }
 
-.datas{
+.transfer-btn{
+    padding-left: 40px;
+    font-family: "Roboto Slab", serif;
+    margin-top: 35px;
+}
+
+.total{
     padding-left: 10%;
 }
 
 .bordering{
     width: 80%;
     border: 3px solid gray;
-    margin-left: 55px;
-    margin-bottom: 30px;
-    border-radius: 12px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-bottom: 40px;
+    padding-left: 40px;
+    border-radius: 20px;
 }
 
-.top{
-    text-align: center;
-    font-family: "Zilla Slab", serif;
-    font-size: 20px;
-}
-
-.back{
-    text-decoration: none;
-    color: white;
-    width: 90px;
-    height: 45px;
-    border-radius: 10px;
-    border: 0;
-    background-color: #1F51FF;
-    font-family: "Roboto Slab", serif;
-    font-size: 15px;
+#tbn{
     cursor: pointer;
-    margin-left: 75%;
-    margin-top: 50px;
-}
-
-.back:hover{
-    background-color: #072db4;
-}
-
-.done{
-    color: white;
-    width: 90px;
+    width: 80px;
     height: 45px;
-    border-radius: 10px;
     border: 0;
     font-family: "Roboto Slab", serif;
     font-size: 15px;
+    color: white;
+    border-radius: 10px;
     background-color: #0BDA51;
-    cursor: pointer;
 }
 
-.done:hover{
-    background-color: #04a93b;
+#tbn:hover{
+    background-color: #7CFC00;
 }
 
-.reset{
-    color: white;
+.activities{
+    padding-bottom: 20px;
+}
+
+.btm-btns{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Refresh{
     width: 90px;
-    height: 45px;
-    border-radius: 10px;
+    height: 50px;
+    border: 0;
     font-family: "Roboto Slab", serif;
     font-size: 15px;
-    border: 0;
-    background-color: #D2042D;
-    cursor: pointer;
+    color: white;
+    background-color: #1F51FF;
+    border-radius: 12px;
 }
 
-.reset:hover{
-    background-color: #9b0322;
+.Refresh:hover{
+    background-color: #4169E1;
+}
+
+.Balance{
+    width: 160px;
+    height: 50px;
+    font-family: "Roboto Slab", serif;
+    font-size: 15px;
+    color: white;
+    background-color: #FFAC1C;
+    border: 0;
+    border-radius: 12px;
+}
+
+.Balance:hover{
+    background-color: #FFD580;
+}
+
+.heading{
+    text-align: center;
+    font-family: "Roboto Slab", serif;
 }
 
 .para{
     font-family: "Libre Baskerville", serif;
+    font-size: 15px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.errors{
+    font-family: "Libre Baskerville", serif;
+    font-size: 15px;
+    color: red;
 }

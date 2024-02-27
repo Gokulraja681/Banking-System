@@ -37,14 +37,14 @@
                                 </div>
                                 <div>
                                     <label for="amt" class="label">Enter amout for deposit </label>
-                                    <input type="number" name="amt" class="input">
+                                    <input type="number" name="amt" class="input" required>
                                 </div>
                                 {% if msg %}
                                   <p>{{msg}}</p>
                                 {% endif %}
                                 <div>
                                     <label class="label" for="pin">Enter your Pin </label>
-                                    <input type="text" name="pin" class="input">
+                                    <input type="text" name="pin" class="input" required>
                                 </div> <br>
                                 {% if msg1 %}
                                   <p>{{msg1}}</p>

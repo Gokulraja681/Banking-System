@@ -201,28 +201,46 @@ def account_creation():
 @app.route('/pin_creation', methods = ['POST','GET'])
 def pin_creation():
     msg = None
+    msg1 = None
+    msg2 = None
+    msg3 = None
+    msg4 = None
+    msg5 = None
     data = None
     if request.method == 'POST':
         if 'user' in session:
             user_id = session['user']
             data = mycol.find_one({'_id': ObjectId(user_id)})
-            acn = int(request.form['acn'])
-            mbno = request.form['mbno']
-            if (acn != data['Account_Number']) or (mbno != data['Mbno']):
-                msg = 'Mobile Number or Account Number not matched with each other'
+            Original_pin = data['Pin']
+            if Original_pin:
+                msg = 'Pin already exists please change pin'
             else:
-                create_pin = request.form['create_pin']
-                if len(create_pin) != 6:
-                    return 'pin must contain 6 characters'
+                acn = request.form['acn']
+                if acn == '':
+                    msg1 = 'Please enter Account Number'
+                elif not acn .isnumeric:
+                    msg2 =  'Please enter valid Account Number'
                 else:
-                    pin = request.form['pin']
-                    if pin != create_pin:
-                        return 'Pin not matched with each other'
+                    mbno = request.form['mbno']
+                    if (acn != data['Account_Number']) or (mbno != data['Mbno']):
+                        ms3 = 'Mobile Number or Account Number not matched with each other'
                     else:
-                        mycol.update_one({'_id': ObjectId(user_id)},
-                                          {'$set': {'Pin': pin}})
-                        return redirect(url_for('profile'))
-    return render_template('pin_creation.html', msg = msg, data = data)
+                        create_pin = request.form['create_pin']
+                        if len(create_pin) != 6:
+                            msg4 = 'pin must contain 6 characters'
+                        else:
+                            pin = request.form['pin']
+                            if pin != create_pin:
+                                msg5 = 'Pin not matched with each other'
+                            else:
+                                mycol.update_one({'_id': ObjectId(user_id)},
+                                                  {'$set': {'Pin': pin}})
+                                return redirect(url_for('profile'))
+        else:
+            return "something went wrong"
+    return render_template('pin_creation.html', msg = msg, msg1=msg1, msg2 = msg2,
+                           msg3 = msg3, msg4 = msg4,
+                            msg5 = msg5, data = data)
 
 # Account Holder's Profile Module
 @app.route('/profile', methods=["GET"])
@@ -318,24 +336,46 @@ def deposit():
 def transfer_money():
     data = None
     receiver_account = None
+    msg = None
+    msg1 = None
+    msg2 = None
+    msg3 = None
+    msg4 = None
+    msg5 = None
     if 'user' in session:
         user_id = session['user']
         data = mycol.find_one({'_id': ObjectId(user_id)})
         if request.method == 'POST':
-            receiver = int(request.form['receiver'])
-            amount = int(request.form['amt'])
-            if data['Amount'] < amount:
-                return 'Insufficient Amount'
+            receiver = request.form['receiver']
+            if receiver == '':
+                msg4 = 'Please enter account number first'
+            elif not receiver.isnumeric():
+                msg = 'Please enter a valid receiver account number'
             else:
-                receiver_account = mycol.find_one({'Account_Number': receiver})
-                if receiver_account:
-                    mycol.update_one({'_id': ObjectId(user_id)},
-                                     {'$inc':{'Amount': -amount}})
-                    mycol.update_one({'_id': receiver_account['_id']},
-                                     {'$inc': {'Amount': amount}})
+                receiver = int(receiver)
+                amount = request.form['amt']
+                if amount == '':
+                    msg1 = 'Please enter amount first'
                 else:
-                    return 'User Account not exists'
-    return render_template('transfer_money.html', data=data, receiver_account = receiver_account)
+                    amount = int(amount)
+                    if data['Amount'] < amount:
+                        msg2 = 'Insufficient Amount'
+                    else:
+                        pin = request.form['pin']
+                        if pin != data['Pin']:
+                            msg5 = 'Pin not matched !'
+                        else:
+                            receiver_account = mycol.find_one({'Account_Number': receiver})
+                            if receiver_account:
+                                mycol.update_one({'_id': ObjectId(user_id)},
+                                                 {'$inc':{'Amount': -amount}})
+                                mycol.update_one({'_id': receiver_account['_id']},
+                                                 {'$inc': {'Amount': amount}})
+                            else:
+                                msg3 = 'User Account not exists'
+    return render_template('transfer_money.html', msg = msg, msg1 = msg1,
+                           data=data, receiver_account = receiver_account,
+                           msg2 = msg2, msg3 = msg3, msg4 = msg4, msg5 = msg5)
 
 
 # Balance Enquiry Module

@@ -19,7 +19,7 @@ body{
 
 .container{
     width: 50%;
-    height: 140%;
+    height: 145%;
     margin: auto;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.7);
@@ -125,4 +125,10 @@ body{
 
 .para{
     font-family: "Libre Baskerville", serif;
+}
+
+.errors{
+    font-family: "Libre Baskerville", serif;
+    font-family: 15px;
+    color: red;
 }
