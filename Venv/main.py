@@ -30,6 +30,8 @@ class SS:
         self.pswd = ""
     
 rg = SS()
+
+
 @app.route('/signup', methods = ["POST", "GET"])
 # Signup module with required parameters
 def signup():
@@ -64,6 +66,7 @@ def signup():
                     mycol.insert_one(mydoc)
                     return redirect(url_for('signin'))
     return render_template('signup.html', msg=msg, msg1=msg1, notify=notify, msg2=msg2)
+
 
 # Account Profile module for testing
 @app.route('/details', methods = ["GET", "POST"])
@@ -117,9 +120,11 @@ def forget_password():
     return render_template('forget_password.html', msg=msg, msg1=msg1, msg2=msg2, notify=notify)
 "---------------------------------------------------------------------------------"
 
+
 @app.route('/index')
 def index():
     return render_template('index.html')
+
 
 #Creating Some initiaters for the datas
 class GORA:
@@ -134,6 +139,7 @@ class GORA:
         self.acn = 0
 
 gr = GORA()
+
 
 # Account Creation Module
 @app.route('/account_creation', methods = ["POST", "GET"])
@@ -197,6 +203,7 @@ def account_creation():
             return 'something went worng!'
     return render_template('account_creation.html', msg2=msg2, data = data)
 
+
 #Accout Pin Creation
 @app.route('/pin_creation', methods = ['POST','GET'])
 def pin_creation():
@@ -206,41 +213,43 @@ def pin_creation():
     msg3 = None
     msg4 = None
     msg5 = None
+    msg6 = None
     data = None
     if request.method == 'POST':
         if 'user' in session:
             user_id = session['user']
             data = mycol.find_one({'_id': ObjectId(user_id)})
-            Original_pin = data['Pin']
-            if Original_pin:
-                msg = 'Pin already exists please change pin'
+            original_pin = data['Pin']
+            acn = request.form['acn']
+            if acn == '':
+                msg1 = 'Please enter Account Number'
+            elif not acn .isnumeric:
+                msg2 =  'Please enter valid Account Number'
             else:
-                acn = request.form['acn']
-                if acn == '':
-                    msg1 = 'Please enter Account Number'
-                elif not acn .isnumeric:
-                    msg2 =  'Please enter valid Account Number'
+                acn = int(acn)
+                mbno = request.form['mbno']
+                if (acn != data['Account_Number']) or (mbno != data['Mbno']):
+                    msg3 = 'Mobile Number or Account Number not matched with each other'
                 else:
-                    mbno = request.form['mbno']
-                    if (acn != data['Account_Number']) or (mbno != data['Mbno']):
-                        ms3 = 'Mobile Number or Account Number not matched with each other'
+                    create_pin = request.form['create_pin']
+                    if len(create_pin) != 6:
+                        msg4 = 'pin must contain 6 characters'
                     else:
-                        create_pin = request.form['create_pin']
-                        if len(create_pin) != 6:
-                            msg4 = 'pin must contain 6 characters'
+                        pin = request.form['pin']
+                        if (pin != create_pin):
+                            msg5 = 'Pin not matched with each other'
+                        elif original_pin:
+                            msg6 = 'Pin already exists for this Account Number!'
                         else:
-                            pin = request.form['pin']
-                            if pin != create_pin:
-                                msg5 = 'Pin not matched with each other'
-                            else:
-                                mycol.update_one({'_id': ObjectId(user_id)},
-                                                  {'$set': {'Pin': pin}})
-                                return redirect(url_for('profile'))
+                            mycol.update_one({'_id': ObjectId(user_id)},
+                                             {'$set': {'Pin': pin}})
+                            return redirect(url_for('profile'))
         else:
             return "something went wrong"
     return render_template('pin_creation.html', msg = msg, msg1=msg1, msg2 = msg2,
-                           msg3 = msg3, msg4 = msg4,
+                           msg3 = msg3, msg4 = msg4, msg6 = msg6,
                             msg5 = msg5, data = data)
+
 
 # Account Holder's Profile Module
 @app.route('/profile', methods=["GET"])
@@ -255,11 +264,13 @@ def profile():
     else:
         return 'something went Worng'
 
+
 # Account Profile Edit module
 @app.route('/edit_profile', methods = ['POST', 'GET'])
 def edit_profile():
     if request.method == 'POST':
         return render_template('edit_profile.html')
+
 
 # Account Withdrawal Module
 @app.route('/withdrawal', methods = ["POST", "GET"])
@@ -297,6 +308,7 @@ def withdrawal():
     return render_template('withdrawal.html', msg = msg, msg1 = msg1, 
                            msg2 = msg2, notify = notify, msg3 = msg3, data = data)
 
+
 # Amount Deposit Module
 @app.route('/deposit', methods=["POST", "GET"])
 def deposit():
@@ -330,6 +342,7 @@ def deposit():
 
     return render_template('deposit.html', msg=msg, msg1=msg1, 
                            msg2=msg2, notify=notify, data=data)
+
 
 # Tranfering Money
 @app.route('/transfer_money', methods=['POST', 'GET'])
@@ -391,6 +404,7 @@ def balance_enquiry():
         else:
             return 'something went wrong'
 
+
 # Change the Pin
 @app.route('/change_pin', methods = ["GET", "POST"])
 def change_pin():
@@ -439,10 +453,12 @@ def change_pin():
     return render_template('change_pin.html', msg = msg, msg1 = msg1, msg2 = msg2,
                            msg3 = msg3, msg4 = msg4)
 
+
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('signin'))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
