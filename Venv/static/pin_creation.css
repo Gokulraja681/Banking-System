@@ -4,8 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 
-body {
-    background-image: url('deposit.jpeg');
+body{
+    background-image: url('pin.png');
     height: 100%;
     width: 100%;
     place-items: center;
@@ -17,65 +17,18 @@ body {
     padding: 0;
 }
 
-
 .container{
     width: 50%;
-    height: 130%;
+    height: 145%;
     margin: auto;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
-
-}
-
-.label{
-    display: block;
-    margin-bottom: 10px;
-    font-family: "Roboto Slab", serif;
-    font-size: 20px;
-    color: black;
-    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
-
 }
 
 .btns{
-    padding-right: 90px;
     display: flex;
-    margin: 0;
-    justify-content: center;
-}
-
-.back{
-    right: 0;
-    position: absolute;
-    margin-right: 30%;
-    margin-top: 24px;
-}
-
-.bordering{
-    width: 80%;
-    border: 3px solid grey;
-    border-radius: 12px;
-}
-
-.datas{
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.first-set{
-    margin-top: 30px;
-    margin-bottom: 40px;
-}
-
-.keys{
-    margin-left: 20px;
-    padding-right: 30px;
-}
-
-.second{
-    margin-bottom: 40px;
+    justify-content: space-evenly;
 }
 
 .input{
@@ -90,20 +43,55 @@ body {
     transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
-.contents{
-    padding-left: 20px;
+.label{
+    display: block;
+    margin-bottom: 10px;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    color: black;
+    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
-.para {
+.datas{
+    padding-left: 10%;
+}
+
+.bordering{
+    width: 80%;
+    border: 3px solid gray;
+    margin-left: 55px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.top{
+    text-align: center;
     font-family: "Zilla Slab", serif;
     font-size: 20px;
 }
 
-.total{
-    padding-left: 90px;
+.back{
+    text-decoration: none;
+    color: white;
+    width: 90px;
+    height: 45px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #1F51FF;
+    font-family: "Roboto Slab", serif;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 75%;
+    margin-top: 50px;
 }
 
-.deposit{
+.back:hover{
+    background-color: #072db4;
+}
+
+.done{
     color: white;
     width: 90px;
     height: 45px;
@@ -115,12 +103,11 @@ body {
     cursor: pointer;
 }
 
-.deposit:hover{
+.done:hover{
     background-color: #04a93b;
-
 }
 
-.reset-btn{
+.reset{
     color: white;
     width: 90px;
     height: 45px;
@@ -132,27 +119,16 @@ body {
     cursor: pointer;
 }
 
-.reset-btn:hover{
+.reset:hover{
     background-color: #9b0322;
 }
 
-.back-btn{
-    color: white;
-    width: 90px;
-    height: 45px;
-    border-radius: 10px;
-    border: 0;
-    background-color: #1F51FF;
-    font-family: "Roboto Slab", serif;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.back-btn:hover{
-    background-color: #072db4;
-}
-
-.values{
+.para{
     font-family: "Libre Baskerville", serif;
-    font-size: 20px;
+}
+
+.errors{
+    font-family: "Libre Baskerville", serif;
+    font-family: 15px;
+    color: red;
 }
